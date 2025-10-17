@@ -1,0 +1,7 @@
+PORT=4000
+MONGODB_URI=mongodb://localhost:27017/elibrary
+JWT_SECRET=mydevsecret
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=us-east-1
+S3_BUCKET=
