@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Home from './pages/Home';
+import Library from './pages/Library';
+import PdfDetail from './pages/PdfDetail';
+import Login from './pages/Login';
+import Upload from './pages/Upload';
+import Header from './components/Header';
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+        <div style={{ padding: 12 }}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/library" element={<Library/>} />
+            <Route path="/pdf/:id" element={<PdfDetail/>} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/admin/upload" element={<Upload/>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
